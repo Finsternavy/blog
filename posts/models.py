@@ -11,6 +11,7 @@ class Post(models.Model):
     )
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

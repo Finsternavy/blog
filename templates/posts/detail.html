@@ -4,6 +4,13 @@
 
 {% block content %}
 <h1>{{ post.title }}</h1>
+<small>Created on: {{ post.created_on }} | By: {{ post.author }}</small>
 <p>{{ post.body }}</p>
-<a href="{% url 'post_list' %}">Return to Posts</a>
+{% if user.is_staff %}
+<div class="crud">
+    <a class="crud-btns" href="{% url 'post_edit' post.id %}">Edit</a>
+    <a class="crud-btns" href="{% url 'post_delete' post.id %}">Delete</a>
+</div>
+{% endif %}
+<a class="" href="{% url 'post_list' %}">Return to Posts</a>
 {% endblock content %}
