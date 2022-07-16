@@ -1,5 +1,3 @@
-from xml.dom import NotFoundErr
-from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView, 
