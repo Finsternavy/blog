@@ -43,7 +43,6 @@ class PostDetailView(DetailView):
             return context
         else:
             self.template_name = "errors/404.html"
-            HttpResponse(status=404)
             return context
     
 
