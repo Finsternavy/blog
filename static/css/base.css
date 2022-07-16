@@ -1,0 +1,62 @@
+.navbar {
+    background-color: rgb(35, 35, 35)!important;
+    margin-bottom: 40px;
+}
+.navbar a  {
+    color: rgb(200, 200, 200)!important;
+}
+.navbar .navbar-toggler{
+    background-color: rgb(50, 50, 50);
+    border: 2px solid rgb(200, 200, 200);
+    border: none;
+}
+body{
+    background-color: rgb(50, 50, 50);
+    color: rgb(200, 200, 200);
+}
+.card{
+    background-color: rgb(75, 75, 75);
+    border: 2px solid rgb(25, 25, 25);
+}
+a{
+    color: rgb(25, 25, 70);
+}
+h1{
+    color: rgb(255, 255, 255);
+}
+h3{
+    color: rgb(235, 235, 235);
+}
+h5 {
+    color: rgb(215, 215, 215);
+}
+.card h6{
+    color: rgb(195, 195, 195)!important;
+}
+#id_create_form > *{
+    min-width: 100%;
+}
+#id_create_form p input,
+#id_create_form p textarea,
+#id_create_form p select{
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgb(75, 75, 75);
+    color: rgb(200, 200, 200);
+    border: none;
+    margin-top: 5px;
+    padding: 3px 13px;
+}
+#id_create_form label{
+    padding-left: 13px;
+}
+#id_create_form .btn{
+    background-color: rgb(25, 25, 25);
+    border: none;
+    text-transform: uppercase;
+}
+#id_create_form .btn:hover,
+#id_create_form .btn:focus{
+    background-color: rgb(200, 200, 200);
+    color: rgb(50, 50, 50);
+}
