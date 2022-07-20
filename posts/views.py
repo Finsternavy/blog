@@ -16,7 +16,7 @@ class PostListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["post_list"] = Post.objects.filter(active = True).order_by("created_on").reverse()
+        context["post_list"] = Post.objects.filter(active =True).order_by("created_on").reverse()
         context["current_datetime"] = datetime.now().strftime("%F %H:%M:%S")
         return context
 

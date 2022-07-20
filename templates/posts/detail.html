@@ -6,7 +6,7 @@
 <h1>{{ post.title }}</h1>
 <small>Created on: {{ post.created_on }} | By: {{ post.author }}</small>
 <p>{{ post.body }}</p>
-{% if user.is_staff %}
+{% if user.is_authenticated %}
 <div class="crud">
     <a class="crud-btns" href="{% url 'post_edit' post.id %}">Edit</a>
     <a class="crud-btns" href="{% url 'post_delete' post.id %}">Delete</a>
