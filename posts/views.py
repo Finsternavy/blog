@@ -22,12 +22,12 @@ class PostListView(ListView):
 
 
 class DraftPostListView(LoginRequiredMixin, ListView):
-    template_name = "posts/list.html"
+    template_name = "posts/draft_list.html"
     model = Post
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["post_list"] = Post.objects.filter(active=False).filter(author=self.request.user).order_by('created_on').reverse()
+        context["draft_post_list"] = Post.objects.filter(active=False).filter(author=self.request.user).order_by('created_on').reverse()
         context["current_datetime"] = datetime.now().strftime("%F %H:%M:%S")
         return context
 
@@ -37,19 +37,29 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if context["post"].author == self.request.user:
-            return context
         if context["post"].active == True:
             return context
         else:
             self.template_name = "errors/404.html"
             return context
     
+class PostDraftDetailView(DetailView):
+    template_name: str = "posts/draft_detail.html"
+    model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if context["post"].active == False:
+            return context
+        else:
+            self.template_name = "errors/404.html"
+            return context
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     template_name = "posts/new.html"
     model = Post
     fields = ["title", "subtitle", "body"]
+    success_url = reverse_lazy("post_list")
 
     def form_valid(self, form):
         form.instance.author = self.request.user

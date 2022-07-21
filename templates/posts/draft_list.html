@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 <link rel="stylesheet" href="/static/css/list.css">
-{% block title %}Posts{% endblock title %}
+{% block title %}Draft Posts{% endblock title %}
 
 {% block content %}
-<h1>Posts</h1>
+<h1>Draft Posts</h1>
 <h6>Current date and time: {{ current_datetime }}</h6>
-{% for post in post_list %}
+{% for post in draft_post_list %}
 <div class="card">
   <div class="card-body">
     <h5>{{ post.author }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ post.title }} - {{ post.created_on }}</h6>
     <p class="card-text">{{ post.body|truncatechars:500 }}</p>
-    <a href="{% url 'post_detail' post.id %}" class="card-link">Read more</a>
+    <a href="{% url 'draft_post_detail' post.id %}" class="card-link">Read more</a>
   </div>
 </div>
 <br />
